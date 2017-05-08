@@ -1,0 +1,44 @@
+autoloaders:
+  Invent: %module%/src
+
+commands:
+  customCommands:
+    - Invent\Commands\AclAuditCommand
+#    - Invent\Commands\AclCreateCommand @TODO rebuild AclCommand
+#    - Invent\Commands\AclExistsCommand @TODO rebuild AclCommand
+#    - Invent\Commands\AdminControllerCommand @TODO rebuild AdminControllerCommand
+#    - Invent\Commands\AdminFormCommand @TODO rebuild AdminFormCommand
+#    - Invent\Commands\AdminGridCommand @TODO rebuild AdminGridCommand
+#    - Invent\Commands\AdminMenuCommand @TODO rebuild AdminMenuCommand
+    - Invent\Commands\BlockAuditCommand
+#    - Invent\Commands\BlockCreateCommand @TODO create BlockCreateCommand
+#    - Invent\Commands\BlockRewriteCommand @TODO create BlockRewriteCommand
+#    - Invent\Commands\ShellCommand @TODO create ShellCommand
+#    - Invent\Commands\ConfigItemCommand @TODO create ItemCommand
+#    - Invent\Commands\ConfigSectionCommand @TODO create SectionCommand
+#    - Invent\Commands\ConfigTabCommand @TODO create TabCommand
+#    - Invent\Commands\ControllerCreateCommand @TODO create ControllerCreateCommand
+#    - Invent\Commands\ControllerRewriteCommand @TODO create ControllerRewriteCommand
+    - Invent\Commands\CreateCommand
+#    - Invent\Commands\Data\InstallCommand @TODO create InstallCommand
+#    - Invent\Commands\Data\UpgradeCommand @TODO create UpgradeCommand
+#    - Invent\Commands\Design\LayoutCommand @TODO create LayoutCommand
+#    - Invent\Commands\Design\TemplateCommand @TODO create TemplateCommand
+    - Invent\Commands\DestroyCommand
+    - Invent\Commands\ExistsCommand
+    - Invent\Commands\HelperAuditCommand
+    - Invent\Commands\HelperCreateCommand
+    - Invent\Commands\HelperRewriteCommand
+#    - Invent\Commands\HideCommand @TODO create HideCommand
+#    - Invent\Commands\JsCommand @TODO create JsCommand
+#    - Invent\Commands\LibCommand @TODO create LibCommand
+    - Invent\Commands\ModelAuditCommand
+#    - Invent\Commands\ModelCreateCommand @TODO create ModelCreateCommand
+#    - Invent\Commands\ModelRewriteCommand @TODO create ModelRewriteCommand
+#    - Invent\Commands\ProfileCommand @TODO rebuild ProfileCommand
+#    - Invent\Commands\Setup\InstallCommand @TODO create InstallCommand
+#    - Invent\Commands\Setup\UpgradeCommand @TODO create UpgradeCommand
+#    - Invent\Commands\Skin\CssCommand @TODO create CssCommand
+#    - Invent\Commands\Skin\JsCommand @TODO create JsCommand
+#    - Invent\Commands\VersionCommand @TODO create VersionCommand
+    - Invent\Commands\TestCommand
