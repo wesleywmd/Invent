@@ -10,7 +10,7 @@ commands:
 #    - Invent\Commands\AdminFormCommand @TODO rebuild AdminFormCommand
 #    - Invent\Commands\AdminGridCommand @TODO rebuild AdminGridCommand
 #    - Invent\Commands\AdminMenuCommand @TODO rebuild AdminMenuCommand
-    - Invent\Commands\BlockAuditCommand
+#    - Invent\Commands\BlockAuditCommand @TODO create BlockAuditCommand
 #    - Invent\Commands\BlockCreateCommand @TODO create BlockCreateCommand
 #    - Invent\Commands\BlockRewriteCommand @TODO create BlockRewriteCommand
 #    - Invent\Commands\ShellCommand @TODO create ShellCommand
@@ -28,7 +28,7 @@ commands:
     - Invent\Commands\ExistsCommand
     - Invent\Commands\HelperAuditCommand
     - Invent\Commands\HelperCreateCommand
-    - Invent\Commands\HelperRewriteCommand
+#    - Invent\Commands\HelperRewriteCommand @TODO create HelperRewriteCommand
 #    - Invent\Commands\HideCommand @TODO create HideCommand
 #    - Invent\Commands\JsCommand @TODO create JsCommand
 #    - Invent\Commands\LibCommand @TODO create LibCommand
@@ -41,4 +41,3 @@ commands:
 #    - Invent\Commands\Skin\CssCommand @TODO create CssCommand
 #    - Invent\Commands\Skin\JsCommand @TODO create JsCommand
 #    - Invent\Commands\VersionCommand @TODO create VersionCommand
-    - Invent\Commands\TestCommand
