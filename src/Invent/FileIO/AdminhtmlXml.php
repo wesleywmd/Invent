@@ -1,8 +1,6 @@
 <?php
 namespace Invent\FileIO;
 
-use Invent\MageService;
-
 class AdminhtmlXml extends AbstractXml implements FileIOInterface
 {
     const CODE_CONFIG = "config";
@@ -43,77 +41,5 @@ class AdminhtmlXml extends AbstractXml implements FileIOInterface
     public function getContents()
     {
         return $this->outputXML();
-    }
-
-    public function registerAclPath($path)
-    {
-        // ensure acl resources node is built
-        $this->createQueryNode(self::CODE_ACL_RESOURCES);
-
-        $path = explode("/",$path);
-        $currentPath = "";
-        $currentXPath = $this->getXPathQuery(self::CODE_ACL_RESOURCES);
-        $service = new MageService();
-        foreach( $path as $node ) {
-            var_dump($currentXPath);
-
-            if( $currentPath === "" ) {
-                $currentPath = $node;
-            } else {
-                $currentPath .= "/" . $node;
-            }
-
-            if( $currentXPath !== $this->getXPathQuery(self::CODE_ACL_RESOURCES) ) {
-                if( !$this->isNode($currentXPath . "/children") ) {
-                    $this->getNode($currentXPath)->appendChild($this->createNode("children"));
-                }
-                $currentXPath .= "/children";
-            }
-
-            if( $service->hasAcl($currentPath) ) {
-                if( !$this->isNode($currentXPath . "/" . $node) ) {
-                    $this->getNode($currentXPath)->appendChild($this->createNodeWithChildren($node,[]));
-                }
-                $currentXPath .= "/" . $node;
-            } else {
-                if( !$this->isNode($currentXPath . "/" . $node) ) {
-                    $domNode = $this->createNodeWithChildren($node,[
-                        $this->createNode("title","TITLE"),
-                        $this->createNode("sort_order","SORT_ORDER"),
-                    ]);
-                    $domNode->setAttribute("translate","title");
-                    $domNode->setAttribute("module",$this->module->getKey());
-                    $this->getNode($currentXPath)->appendChild($domNode);
-                }
-                $currentXPath .= "/" . $node;
-            }
-        }
-    }
-
-
-
-
-
-
-
-
-    public function registerTopMenu($code,$attr) {
-        // main node
-        // title
-        // action
-        // sort order
-        // depends
-        // children
-    }
-
-    private function createMenuItem($title,$action,$sortOrder,$children,$depends)
-    {
-        return [
-            "title"=>$title,
-            "action"=>$action,
-            "sort_order"=>$sortOrder,
-            "children"=>$children,
-
-        ];
     }
 }

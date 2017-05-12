@@ -70,43 +70,4 @@ class MageService
         $nodes = $resources->xpath("//*[@aclpath='{$aclPath}']");
         return !is_null($nodes[0]);
     }
-
-    public function auditAclPath($path)
-    {
-        $path = explode("/",$path);
-        $currentPath = "";
-        $service = new MageService();
-        foreach( $path as $node ) {
-            if( $currentPath === "" ) {
-                $currentPath = $node;
-            } else {
-                $currentPath .= "/" . $node;
-            }
-
-            if( $currentXPath !== $this->getXPathQuery(self::CODE_ACL_RESOURCES) ) {
-                if( !$this->isNode($currentXPath . "/children") ) {
-                    $this->getNode($currentXPath)->appendChild($this->createNode("children"));
-                }
-                $currentXPath .= "/children";
-            }
-
-            if( $service->hasAcl($currentPath) ) {
-                if( !$this->isNode($currentXPath . "/" . $node) ) {
-                    $this->getNode($currentXPath)->appendChild($this->createNodeWithChildren($node,[]));
-                }
-                $currentXPath .= "/" . $node;
-            } else {
-                if( !$this->isNode($currentXPath . "/" . $node) ) {
-                    $domNode = $this->createNodeWithChildren($node,[
-                        $this->createNode("title","TITLE"),
-                        $this->createNode("sort_order","SORT_ORDER"),
-                    ]);
-                    $domNode->setAttribute("translate","title");
-                    $domNode->setAttribute("module",$this->module->getKey());
-                    $this->getNode($currentXPath)->appendChild($domNode);
-                }
-                $currentXPath .= "/" . $node;
-            }
-        }
-    }
 }
