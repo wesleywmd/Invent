@@ -6,6 +6,7 @@ use DOMDocument;
 use Invent\FileIO;
 use Invent\MageService;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class TestCommand extends AbstractModuleCommand
@@ -17,17 +18,24 @@ class TestCommand extends AbstractModuleCommand
     {
         $this->setName("invent:test")
             ->setDescription("New Test command registered in a module")
-            ->addModuleInputs();
+            ->addModuleInputs()
+            ->addOption(
+                "names", null,
+                InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED,
+                "names"
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         parent::execute($input,$output);
-        $service = new MageService();
-        echo $service->inspectSystemXml("sections");
-//        $configXml = $this->getFileIO()->createFile(FileIO::XML_CONFIG,$this->getModule());
-//        $configXml->setVersion();
-//        $configXml->rewriteHelper("catalog","product_price","Beta_Test_Helper_Product_Price");
-//        echo $configXml->outputXML();
+        var_dump($input->getOption("names")); die(0);
+
+
+
+
+        $adminhtmlXml = $this->getFileIO()->createFile(FileIO::XML_ADMINHTML,$this->getModule());
+        $adminhtmlXml->registerAclPath("admin/system/testconfig/catalog/test");
+        echo $adminhtmlXml->outputXML();
     }
 }

@@ -3,9 +3,9 @@ autoloaders:
 
 commands:
   customCommands:
-    - Invent\Commands\AclAuditCommand
+#    - Invent\Commands\AclAuditCommand @TODO rebuild AclCommand
 #    - Invent\Commands\AclCreateCommand @TODO rebuild AclCommand
-#    - Invent\Commands\AclExistsCommand @TODO rebuild AclCommand
+    - Invent\Commands\AclExistsCommand
 #    - Invent\Commands\AdminControllerCommand @TODO rebuild AdminControllerCommand
 #    - Invent\Commands\AdminFormCommand @TODO rebuild AdminFormCommand
 #    - Invent\Commands\AdminGridCommand @TODO rebuild AdminGridCommand

@@ -3,6 +3,7 @@ namespace Invent;
 
 use Exception;
 use Invent\FileIO\AbstractXml;
+use Invent\FileIO\AdminhtmlXml;
 use Invent\FileIO\ConfigXml;
 use Invent\FileIO\FileIOInterface;
 use Invent\FileIO\HelperPhp;
@@ -13,6 +14,7 @@ use RecursiveIteratorIterator;
 class FileIO
 {
     const PHP_HELPER = "helper";
+    const XML_ADMINHTML = "adminhtml";
     const XML_CONFIG = "config";
     const XML_INIT = "init";
 
@@ -55,6 +57,10 @@ class FileIO
             case self::PHP_HELPER:
                 /** @var HelperPhp $file */
                 $file = new HelperPhp($module);
+                break;
+            case self::XML_ADMINHTML:
+                /** @var AdminhtmlXml $file */
+                $file = new AdminhtmlXml($module);
                 break;
             case self::XML_CONFIG:
                 /** @var ConfigXml $file */
