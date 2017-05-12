@@ -7,9 +7,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ExistsCommand extends AbstractModuleCommand
+class ModuleExistsCommand extends AbstractModuleCommand
 {
-    const COMMAND_NAME = "invent:exists";
+    const COMMAND_NAME = "invent:module:exists";
     const OPTION_SIMPLE = "simple";
 
     protected function configure()

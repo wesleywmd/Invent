@@ -10,9 +10,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CreateCommand extends AbstractModuleCommand
+class ModuleCreateCommand extends AbstractModuleCommand
 {
-    const COMMAND_NAME = "invent:create";
+    const COMMAND_NAME = "invent:module:create";
     const OPTION_OFF = "off";
     const OPTION_HELPER = "helper";
 
