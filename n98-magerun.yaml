@@ -19,13 +19,10 @@ commands:
 #    - Invent\Commands\ConfigTabCommand @TODO create TabCommand
 #    - Invent\Commands\ControllerCreateCommand @TODO create ControllerCreateCommand
 #    - Invent\Commands\ControllerRewriteCommand @TODO create ControllerRewriteCommand
-    - Invent\Commands\CreateCommand
 #    - Invent\Commands\Data\InstallCommand @TODO create InstallCommand
 #    - Invent\Commands\Data\UpgradeCommand @TODO create UpgradeCommand
 #    - Invent\Commands\Design\LayoutCommand @TODO create LayoutCommand
 #    - Invent\Commands\Design\TemplateCommand @TODO create TemplateCommand
-    - Invent\Commands\DestroyCommand
-    - Invent\Commands\ExistsCommand
     - Invent\Commands\HelperAuditCommand
     - Invent\Commands\HelperCreateCommand
 #    - Invent\Commands\HelperRewriteCommand @TODO create HelperRewriteCommand
@@ -35,6 +32,9 @@ commands:
     - Invent\Commands\ModelAuditCommand
 #    - Invent\Commands\ModelCreateCommand @TODO create ModelCreateCommand
 #    - Invent\Commands\ModelRewriteCommand @TODO create ModelRewriteCommand
+    - Invent\Commands\ModuleCreateCommand
+    - Invent\Commands\ModuleDestroyCommand
+    - Invent\Commands\ModuleExistsCommand
 #    - Invent\Commands\ProfileCommand @TODO rebuild ProfileCommand
 #    - Invent\Commands\Setup\InstallCommand @TODO create InstallCommand
 #    - Invent\Commands\Setup\UpgradeCommand @TODO create UpgradeCommand
