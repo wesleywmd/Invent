@@ -15,8 +15,14 @@ use N98\Magento\Command\AbstractMagentoCommand;
 abstract class AbstractModuleCommand extends AbstractMagentoCommand
 {
     const ARGUMENT_MODULE = "module";
+    const COMMAND_NAME = null;
+    const COMMAND_DESC = null;
+    const COMMAND_HELP = null;
+    const OPTION_COMMUNITY = "community";
+    const OPTION_CORE = "core";
     const OPTION_KEY = "key";
-    const OPTION_LOCALE = "locale";
+    const OPTION_LOCAL = "local";
+    const OPTION_TEST = "test-run";
 
     /** @var  Logger */
     private $logger;
@@ -40,9 +46,27 @@ abstract class AbstractModuleCommand extends AbstractMagentoCommand
             InputOption::VALUE_REQUIRED,
             "Module Key"
         )->addOption(
-            self::OPTION_LOCALE, "l",
-            InputOption::VALUE_REQUIRED,
-            "Module Locale"
+            self::OPTION_CORE, null,
+            InputOption::VALUE_NONE,
+            "Sets the locale to core"
+        )->addOption(
+            self::OPTION_COMMUNITY, null,
+            InputOption::VALUE_NONE,
+            "Sets the locale to community"
+        )->addOption(
+            self::OPTION_LOCAL, null,
+            InputOption::VALUE_NONE,
+            "Sets the locale to local"
+        );
+        return $this;
+    }
+
+    protected function addTestOption()
+    {
+        $this->addOption(
+            self::OPTION_TEST, "t",
+            InputOption::VALUE_NONE,
+            "Enables test mode. Test mode allows you to run a command and see it outcome with change your code base."
         );
         return $this;
     }

@@ -22,16 +22,18 @@ class HelperCreateCommand extends AbstractModuleCommand
     protected function configure()
     {
         $this->setName(self::COMMAND_NAME)
-            ->setDescription("Create new helper")
+            ->setDescription("Create new helper class")
+            ->setHelp("Creates a new helper class and ensures that helpers are enabled in the config xml for the module.")
             ->addModuleInputs()
+            ->addTestOption()
             ->addArgument(
                 self::ARGUMENT_HELPER_NAME,
                 InputArgument::REQUIRED,
-                'the helper\'s name'
+                "Helper Name"
             )->addOption(
                 self::OPTION_EXTENDS, 'e',
                 InputOption::VALUE_REQUIRED,
-                'optionally set what object your helper will extend'
+                "optionally set what object your helper will extend"
             );
     }
 

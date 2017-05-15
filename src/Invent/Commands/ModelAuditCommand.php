@@ -15,11 +15,12 @@ class ModelAuditCommand extends AbstractModuleCommand
     protected function configure()
     {
         $this->setName(self::COMMAND_NAME)
-            ->setDescription("Print and audit of a model")
+            ->setDescription("Print an audit of a model")
+            ->setHelp("Displays a formatted audit of a model based on the provide model handle. This displays class ancestry, fields, and methods for the given model.")
             ->addArgument(
                 self::ARGUMENT_MODEL_HANDLE,
                 InputArgument::REQUIRED,
-                'the model\'s magento handle'
+                "Model handle to look up"
             );
     }
 
