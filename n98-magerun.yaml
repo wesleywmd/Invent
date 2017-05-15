@@ -29,6 +29,7 @@ commands:
 #    - Invent\Commands\HideCommand @TODO create HideCommand
 #    - Invent\Commands\JsCommand @TODO create JsCommand
 #    - Invent\Commands\LibCommand @TODO create LibCommand
+#    - Invetn\Commands\ModuleInstallerCommand @TODO create ModuleInstallerCommand
     - Invent\Commands\ModelAuditCommand
 #    - Invent\Commands\ModelCreateCommand @TODO create ModelCreateCommand
 #    - Invent\Commands\ModelRewriteCommand @TODO create ModelRewriteCommand
@@ -36,8 +37,8 @@ commands:
     - Invent\Commands\ModuleDestroyCommand
     - Invent\Commands\ModuleExistsCommand
 #    - Invent\Commands\ProfileCommand @TODO rebuild ProfileCommand
-#    - Invent\Commands\Setup\InstallCommand @TODO create InstallCommand
-#    - Invent\Commands\Setup\UpgradeCommand @TODO create UpgradeCommand
-#    - Invent\Commands\Skin\CssCommand @TODO create CssCommand
-#    - Invent\Commands\Skin\JsCommand @TODO create JsCommand
+#    - Invent\Commands\SetupDataCommand @TODO create SetupDataCommand
+    - Invent\Commands\SetupSqlCommand
+#    - Invent\Commands\SkinCssCommand @TODO create CssCommand
+#    - Invent\Commands\SkinJsCommand @TODO create JsCommand
 #    - Invent\Commands\VersionCommand @TODO create VersionCommand
