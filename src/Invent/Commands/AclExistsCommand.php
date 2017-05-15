@@ -19,10 +19,11 @@ class AclExistsCommand extends AbstractModuleCommand
     {
         $this->setName(self::COMMAND_NAME)
             ->setDescription("Check if acl path exists")
+            ->setHelp("Checks Magento for the provided acl path and returns whether that path is found in the config xml of magento at runtime.")
             ->addArgument(
                 self::ARGUMENT_PATH,
                 InputArgument::REQUIRED,
-                'Acl path to check.'
+                'Acl path to check'
             );
     }
 

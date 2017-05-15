@@ -19,6 +19,7 @@ class ModuleDestroyCommand extends AbstractModuleCommand
     {
         $this->setName(self::COMMAND_NAME)
             ->setDescription("Destroy a module")
+            ->setHelp("Permanently change ")
             ->addModuleInputs()
             ->addOption(
                 self::OPTION_DESTROY, null,

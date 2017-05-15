@@ -13,8 +13,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ModuleCreateCommand extends AbstractModuleCommand
 {
     const COMMAND_NAME = "invent:module:create";
-    const OPTION_OFF = "off";
-    const OPTION_HELPER = "helper";
+    const OPTION_DISABLED = "disabled";
+    const OPTION_HELPER = "data-helper";
 
     protected $moduleMustExist = false;
 
@@ -22,15 +22,17 @@ class ModuleCreateCommand extends AbstractModuleCommand
     {
         $this->setName(self::COMMAND_NAME)
             ->setDescription("Create new module")
+            ->setHelp("Creates a new module xml and config xml if the module files do not already exist")
             ->addModuleInputs()
+            ->addTestOption()
             ->addOption(
-                self::OPTION_OFF, 'o',
-                InputOption::VALUE_OPTIONAL,
-                'Set the active node of the newly created module to false when present'
+                self::OPTION_DISABLED, null,
+                InputOption::VALUE_NONE,
+                'Set the active node of the newly created module to false'
             )->addOption(
                 self::OPTION_HELPER, 'd',
                 InputOption::VALUE_NONE,
-                'Also generate your module\'s Data helper.'
+                "Include a data helper."
             );
     }
 
@@ -45,11 +47,12 @@ class ModuleCreateCommand extends AbstractModuleCommand
             // create init Xml
             /** @var InitXml $initXml */
             $initXml = $this->getFileIO()->createFile(FileIO::XML_INIT,$this->getModule());
-            $initXml->setActive( ($input->getOption(self::OPTION_OFF)) ? "false" : "true" );
+            $initXml->setActive( ($input->getOption(self::OPTION_DISABLED)) ? "false" : "true" );
             $initXml->setCodePool($this->getModule()->getLocale());
             $this->getFileIO()->writeFile($initXml);
 
             // create config xml
+            /** @var FileIO\ConfigXml $configXml */
             $configXml = $this->getFileIO()->createFile(FileIO::XML_CONFIG,$this->getModule());
             $configXml->setVersion("0.0.1");
             if( $input->getOption(self::OPTION_HELPER) ) {

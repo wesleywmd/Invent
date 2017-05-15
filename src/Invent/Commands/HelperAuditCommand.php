@@ -15,11 +15,12 @@ class HelperAuditCommand extends AbstractModuleCommand
     protected function configure()
     {
         $this->setName(self::COMMAND_NAME)
-            ->setDescription("Print and audit of a helper")
+            ->setDescription("Print an audit of a helper")
+            ->setHelp("Displays a formatted audit of a helper based on the provide helper handle. This displays class ancestry, fields, and methods for the given helper.")
             ->addArgument(
                 self::ARGUMENT_HELPER_HANDLE,
                 InputArgument::REQUIRED,
-                'the helper\'s magento handle'
+                "Helper handle to look up"
             );
     }
 
