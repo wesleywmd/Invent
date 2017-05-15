@@ -4,15 +4,13 @@ namespace Invent\Commands;
 
 use Exception;
 use Invent\FileIO;
-use Invent\FileIO\HelperPhp;
-use Invent\FileIO\InitXml;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class DestroyCommand extends AbstractModuleCommand
+class ModuleDestroyCommand extends AbstractModuleCommand
 {
-    const COMMAND_NAME = "invent:destroy";
+    const COMMAND_NAME = "invent:module:destroy";
     const OPTION_DESTROY = "destroy";
 
     protected $moduleMustExist = true;
