@@ -10,9 +10,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CreateCommand extends AbstractModuleCommand
+class ModuleCreateCommand extends AbstractModuleCommand
 {
-    const COMMAND_NAME = "invent:create";
+    const COMMAND_NAME = "invent:module:create";
     const OPTION_DISABLED = "disabled";
     const OPTION_HELPER = "data-helper";
 
@@ -52,6 +52,7 @@ class CreateCommand extends AbstractModuleCommand
             $this->getFileIO()->writeFile($initXml);
 
             // create config xml
+            /** @var FileIO\ConfigXml $configXml */
             $configXml = $this->getFileIO()->createFile(FileIO::XML_CONFIG,$this->getModule());
             $configXml->setVersion("0.0.1");
             if( $input->getOption(self::OPTION_HELPER) ) {

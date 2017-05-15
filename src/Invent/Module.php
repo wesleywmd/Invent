@@ -105,8 +105,9 @@ class Module
         return $this->name;
     }
 
-    public function pathAppCode()
+    public function pathAppCode($path=null)
     {
-        return self::mageBaseDir() . '/app/code/' . $this->locale . '/' . $this->namespace . '/' . $this->name;
+        $appCode = self::mageBaseDir() . '/app/code/' . $this->locale . '/' . $this->namespace . '/' . $this->name;
+        return ( is_null($path) ) ? $appCode : $appCode . "/" . $path;
     }
 }
