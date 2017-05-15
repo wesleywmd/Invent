@@ -8,12 +8,16 @@ use Invent\FileIO\ConfigXml;
 use Invent\FileIO\FileIOInterface;
 use Invent\FileIO\HelperPhp;
 use Invent\FileIO\InitXml;
+use Invent\FileIO\SetupScriptPhp;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use Symfony\Component\Finder\SplFileInfo;
 
 class FileIO
 {
     const PHP_HELPER = "helper";
+    const PHP_SETUP_INSTALL = "setup_install";
+    const PHP_SETUP_UPGRADE = "setup_upgrade";
     const XML_ADMINHTML = "adminhtml";
     const XML_CONFIG = "config";
     const XML_INIT = "init";
@@ -32,6 +36,20 @@ class FileIO
     public function makeDir($path)
     {
         mkdir($path,0777,true);
+    }
+
+    public function findFileByPattern($pattern,$path)
+    {
+        $dir_iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS);
+        $iterator = new RecursiveIteratorIterator($dir_iterator, RecursiveIteratorIterator::SELF_FIRST);
+
+        /** @var SplFileInfo $file */
+        foreach ($iterator as $file) {
+            if( substr($file->getFilename(), 0, strlen($pattern)) === $pattern ) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public function moduleExists(Module $module)
@@ -57,6 +75,14 @@ class FileIO
             case self::PHP_HELPER:
                 /** @var HelperPhp $file */
                 $file = new HelperPhp($module);
+                break;
+            case self::PHP_SETUP_INSTALL:
+                /** @var SetupScriptPhp $file */
+                $file = new SetupScriptPhp(SetupScriptPhp::TYPE_INSTALL,$module);
+                break;
+            case self::PHP_SETUP_UPGRADE:
+                /** @var SetupScriptPhp $file */
+                $file = new SetupScriptPhp(SetupScriptPhp::TYPE_UPGRADE,$module);
                 break;
             case self::XML_ADMINHTML:
                 /** @var AdminhtmlXml $file */
@@ -105,4 +131,5 @@ class FileIO
         }
         rmdir($dir);
     }
+
 }
