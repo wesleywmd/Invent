@@ -11,7 +11,7 @@ commands:
 #    - Invent\Commands\AdminGridCommand @TODO rebuild AdminGridCommand
 #    - Invent\Commands\AdminMenuCommand @TODO rebuild AdminMenuCommand
 #    - Invent\Commands\BlockAuditCommand @TODO create BlockAuditCommand
-#    - Invent\Commands\BlockCreateCommand @TODO create BlockCreateCommand
+    - Invent\Commands\BlockCreateCommand
 #    - Invent\Commands\BlockRewriteCommand @TODO create BlockRewriteCommand
 #    - Invent\Commands\ShellCommand @TODO create ShellCommand
 #    - Invent\Commands\ConfigItemCommand @TODO create ItemCommand
