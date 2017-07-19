@@ -4,6 +4,7 @@ namespace Invent;
 use Exception;
 use Invent\FileIO\AbstractXml;
 use Invent\FileIO\AdminhtmlXml;
+use Invent\FileIO\BlockPhp;
 use Invent\FileIO\ConfigXml;
 use Invent\FileIO\FileIOInterface;
 use Invent\FileIO\HelperPhp;
@@ -15,6 +16,7 @@ use Symfony\Component\Finder\SplFileInfo;
 
 class FileIO
 {
+    const PHP_BLOCK = "block";
     const PHP_HELPER = "helper";
     const PHP_SETUP_INSTALL = "setup_install";
     const PHP_SETUP_UPGRADE = "setup_upgrade";
@@ -72,6 +74,10 @@ class FileIO
     public function createFile($type,Module $module,$fileExists=null) {
         /** @var FileIOInterface $file */
         switch( $type ) {
+            case self::PHP_BLOCK:
+                /** @var BlockPhp $file */
+                $file = new BlockPhp($module);
+                break;
             case self::PHP_HELPER:
                 /** @var HelperPhp $file */
                 $file = new HelperPhp($module);
